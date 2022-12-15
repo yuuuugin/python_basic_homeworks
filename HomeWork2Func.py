@@ -10,9 +10,9 @@ b = int(input("Press num 2: "))
 
 def search_biggest(a, b):
     if a > b:
-        print(a)
+        return (a)
     elif a < b:
-        print(b)
+        return (b)
 
 
 search_biggest(a, b)
@@ -34,11 +34,11 @@ c = int(input("Press num 3: "))
 
 def search_smallest(a, b, c):
     if a < b and a < c:
-        print(a)
+        return (a)
     elif b < a and b < c:
-        print(b)
+        return (b)
     else:
-        print(c)
+        return (c)
 
 
 search_smallest(a, b, c)
@@ -54,13 +54,15 @@ print("The absolute value of a number")
 
 
 def absolut(a):
-    print(abs(a))
+    if a < 0:
+        return (a + 2*a)
+    elif a == 0:
+        return (a)
+    elif a > 0:
+        return (a)
 
 
 a = int(input("Press num: "))
-
-
-absolut(a)
 
 
 print("Finished")
@@ -73,7 +75,7 @@ print("Sum of numbers")
 
 
 def search_sum():
-    print(c)
+    return (c)
 
 
 a = int(input("Press num 1: "))
@@ -99,11 +101,11 @@ a = int(input("Press num: "))
 
 def neg_pos(a):
     if a == 0:
-        print("The number 0 is the smallest non-negative integer")
+        return ("The number 0 is the smallest non-negative integer")
     elif a > 0:
-        print("Positive")
+        return ("Positive")
     elif a < 0:
-        print("Negative")
+        return ("Negative")
 
 
 neg_pos(a)
