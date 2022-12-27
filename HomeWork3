@@ -1,4 +1,4 @@
-# Створити функцію retry, що буде повторювати певний код визначену кількість разів
+# 1. Створити функцію retry, що буде повторювати певний код визначену кількість разів
 
 
 import random
@@ -87,8 +87,3 @@ def print_square_down(n):
     if n > 2:
         print(('*' + '  ') * n)
 
-
-n = int(input())
-print_square_up(n)
-print_left_right(n)
-print_square_down(n)
