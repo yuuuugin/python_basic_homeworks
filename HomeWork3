@@ -1,0 +1,89 @@
+# 1. Створити функцію retry, що буде повторювати певний код визначену кількість разів
+
+
+import random
+import functools
+
+
+def get_random_value():
+    return random.choice((1, 2, 3, 4, 5))
+
+
+def get_random_values(choices, size=2):
+    return random.choices(choices, k=size)
+
+
+def retry(attempts: int = 5, desired_value: any = None):
+    def retry_decorator(wrapped_func):
+        @functools.wraps(wrapped_func)
+        def wrapper_retry(*args, **kwargs):
+            for i in range(attempts):
+                result = wrapped_func(*args, **kwargs)
+                if result == desired_value:
+                    return result
+            print('fail')
+
+        return wrapper_retry
+
+    return retry_decorator
+
+
+@retry(desired_value=3)
+def get_random_value():
+    return random.choice((1, 2, 3, 4, 5))
+
+
+@retry(desired_value=[1, 2])
+def get_random_values(choices, size=2):
+    return random.choices(choices, k=size)
+
+
+@retry(attempts=7, desired_value=3)
+def get_random_value():
+    return random.choice((1, 2, 3, 4, 5))
+
+
+@retry(attempts=2, desired_value=[1, 2, 3])
+def get_random_values(choices, size=2):
+    return random.choices(choices, k=size)
+
+
+get_random_value()
+get_random_values([1, 2, 3, 4])
+get_random_values([1, 2, 3, 4], 3)
+get_random_values([1, 2, 3, 4], size=1)
+
+
+# 2. Створити функцію print_square, що виводитиме на екран квадрат заданої величини
+
+
+def print_square_up(n):
+    if n == 1:
+        print('*')
+    if n == 2:
+        print('*' * 2)
+    if n > 2:
+        print(('*' + '  ') * n)
+
+
+def print_left_right(n):
+    if n == 1:
+        print(' ')
+    if n == 2:
+        print('*' * 2)
+    for n in range(n - 2):
+        print('*' + '     '
+                    '     '
+                    '     '
+                    '     '
+                    '      ' + '*')
+
+
+def print_square_down(n):
+    if n == 1:
+        print('')
+    if n == 2:
+        print('')
+    if n > 2:
+        print(('*' + '  ') * n)
+
