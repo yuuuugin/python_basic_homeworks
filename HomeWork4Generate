@@ -1,0 +1,41 @@
+# 1. Функція, що буде створювати список чисел, що наповнений або парними або непарними числами в залежності
+# від аргументу, що передали у функцію. Функція прийматиме 2 аргументи: перший - значення,
+# до якого треба дивитися числа (наприклад, передали 10 і в списку отримаємо підмножину чисел від 0 до 10),
+# другий - чи заповнювати список парними чи непарними значеннями.
+
+
+num1 = int(input('Write the Value : '))
+num2 = int(input('Unpaired values - Press 1\nPaired values - Press 2\n : '))
+l1 = [i for i in range(num2, num1, 2)]
+
+
+def get_even_or_odd_numbers():
+    print(l1)
+
+
+get_even_or_odd_numbers()
+
+
+# 2. Функція, що буде залишати в списку тільки ті слова, що містять в собі шукані літери.
+# Функція приймає 2 аргументи: перший - шукане значення, друге - список слів, в яких ми ці значення шукаємо.
+
+
+arg1 = str(input('go'))
+arg2 = str(input())
+
+for char in arg2:
+        if char in arg1:
+            continue
+
+
+# 3. Генератор, що віддає один елемент послідовності з підпослідовностями у вигляді елементу підпослідовності.
+
+    generator = (item for item in range(5))
+    assert next(generator) == 1
+    assert next(generator) == 2
+    assert next(generator) == 3
+    assert next(generator) == 4
+    assert next(generator) == 5
+
+
+
